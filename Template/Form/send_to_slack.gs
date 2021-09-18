@@ -1,8 +1,8 @@
 // Webhook API added to target Slack Channel
 var ChannelURL = "https://hooks.slack.com/services/your/api/url"
 
-// send body(message) to channel
-// You can change bot's icon by icon_emoji
+// send body(message) to channel.
+// The icon of the bot can be selected by changing the icon_emoji.
 function sendToSlack(body, channel) {
   var data = { "channel" : channel, "username" : "your bot name", "icon_emoji": ":robot_face:", "text" : body };
   var payload = JSON.stringify(data);
@@ -14,7 +14,7 @@ function sendToSlack(body, channel) {
   var response = UrlFetchApp.fetch(ChannelURL, options);
 }
 
-// send form contents to channel
+// send form contents to channel.
 function newSubmitToSlack(e){
     var body = "New response received."
     // Define as many variables as there are questions to forward
@@ -37,10 +37,9 @@ function newSubmitToSlack(e){
                 break
         }
     }
-    // Rewrite the format of the message you want to forward
+    // Rewrite the text below to the format of the message you want to forward.
     var body = body + "```question1_title:" + question1;
     var body = body + "\nquestion2_title:" + question2 + "```";
 
     sendToSlack(body, "#Target_Channel_Name")
-
 }
