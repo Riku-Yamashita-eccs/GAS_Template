@@ -4,6 +4,7 @@ var APIURL = "Your_API_URL"
 
 
 // Error return -1/ Success return 0 
+// If you use delete, change "post" to "delete"
 function postAPI(){
     var apikey = PropertiesService.getScriptProperties().getProperty("APIKEY");
     // The following is example
